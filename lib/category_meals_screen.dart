@@ -3,6 +3,8 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 import 'package:flutter/material.dart';
+import 'package:meal_app/dummy_data.dart';
+import 'package:meal_app/models/meal.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
   // final String categoryId;
@@ -16,14 +18,19 @@ class CategoryMealsScreen extends StatelessWidget {
     final routeArgs =
         ModalRoute.of(context).settings.arguments as Map<String, String>;
     final categoryTitle = routeArgs['title'];
+    final categoryId = routeArgs['id'];
+    final CategoryMeals = DUMMY_MEALS.where((meal) {
+      return meal.categories.contains(categoryId);
+    }).toList();
     return Scaffold(
       appBar: AppBar(
         title: Text(categoryTitle),
       ),
-      body: Center(
-        child: Text(
-          "The recipes for category",
-        ),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return Text(CategoryMeals[index].title);
+        },
+        itemCount: CategoryMeals.length,
       ),
     );
   }
