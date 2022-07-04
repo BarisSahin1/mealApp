@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
             ),
       ),
       //darkTheme: ThemeData.dark(),
-      home: CategoriesScreen(),
+      //home: CategoriesScreen(),
       routes: {
         '/': (ctx) => CategoriesScreen(),
-        '/category-meals': (ctx) => CategoryMealsScreen(),
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
       },
     );
   }
