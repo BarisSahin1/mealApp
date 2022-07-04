@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
       //darkTheme: ThemeData.dark(),
       home: CategoriesScreen(),
       routes: {
+        '/': (ctx) => CategoriesScreen(),
         '/category-meals': (ctx) => CategoryMealsScreen(),
       },
     );
