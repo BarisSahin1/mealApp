@@ -1,10 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:flutter/material.dart';
 import 'package:meal_app/dummy_data.dart';
-import 'package:meal_app/models/meal.dart';
 import 'package:meal_app/widgets/meal_item.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
@@ -30,6 +25,7 @@ class CategoryMealsScreen extends StatelessWidget {
       body: ListView.builder(
         itemBuilder: (context, index) {
           return MealItem(
+            id: CategoryMeals[index].id,
             title: CategoryMeals[index].title,
             imageUrl: CategoryMeals[index].imageUrl,
             affordability: CategoryMeals[index].affordability,
